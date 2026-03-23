@@ -17,7 +17,6 @@ Mjesto za biljeske o avanturi razvoja aplikacije.
 - Problemi/blokade:
 - Rjesenje/odluke:
 - Sljedece:
-
 ---
 
 ## Unosi
@@ -42,3 +41,10 @@ Mjesto za biljeske o avanturi razvoja aplikacije.
 - Problemi/blokade: Nema.
 - Rjesenje/odluke: Smanjen scope projekta i kompleksnost odrzavanja build konfiguracija.
 - Sljedece: Nastaviti razvoj na prioritetnim platformama prema planu.
+
+### [2026-03-23] Ciscenje default Flutter postavki
+- Kontekst: Prije uvodjenja feature-based arhitekture potrebno je ukloniti starter boilerplate.
+- Danas uradjeno: Obrisani default counter demo i test, azuriran bootstrap ekran i projektna dokumentacija.
+- Problemi/blokade: Nema.
+- Rjesenje/odluke: Projekat je ostavljen u cistom stanju kao baza za naredni arhitekturalni korak.
+- Sljedece: Implementirati feature-based folder strukturu i osnovne core module.
