@@ -48,3 +48,10 @@ Mjesto za biljeske o avanturi razvoja aplikacije.
 - Problemi/blokade: Nema.
 - Rjesenje/odluke: Projekat je ostavljen u cistom stanju kao baza za naredni arhitekturalni korak.
 - Sljedece: Implementirati feature-based folder strukturu i osnovne core module.
+
+### [2026-03-24] Uklonjen debug banner
+- Kontekst: Potreban cist prikaz aplikacije tokom razvoja i demo sesija.
+- Danas uradjeno: Iskljucen Flutter debug banner u glavnoj aplikaciji.
+- Problemi/blokade: Nema.
+- Rjesenje/odluke: Zadrzavamo debug build, ali bez vizuelnog debug bannera.
+- Sljedece: Nastaviti postavljanje feature-based arhitekture.

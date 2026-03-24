@@ -9,7 +9,9 @@ class TorvinApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Torvin',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
@@ -24,6 +26,7 @@ class _BootstrapPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.surface,
