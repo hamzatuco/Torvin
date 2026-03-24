@@ -43,10 +43,6 @@ class _ThemePreviewPage extends StatelessWidget {
     final theme = Theme.of(context);
 
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: theme.colorScheme.surface,
-        title: const Text('Torvin'),
-      ),
       body: Center(
         child: Padding(
           padding: _pagePadding,
