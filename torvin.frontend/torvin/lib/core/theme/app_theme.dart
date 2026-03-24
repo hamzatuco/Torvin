@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'app_constants.dart';
 
 /// AppTheme provides light and dark theme configurations with Material 3 support
@@ -189,7 +190,9 @@ class AppTheme {
     useMaterial3: true,
     brightness: colorScheme.brightness,
     colorScheme: colorScheme,
-    textTheme: _textTheme,
+    fontFamily: GoogleFonts.poppins().fontFamily,
+    textTheme: GoogleFonts.poppinsTextTheme(_textTheme),
+    primaryTextTheme: GoogleFonts.poppinsTextTheme(_textTheme),
     appBarTheme: colorScheme.brightness == Brightness.light ? _lightAppBarTheme : _darkAppBarTheme,
     elevatedButtonTheme: elevatedButtonTheme(colorScheme),
     filledButtonTheme: filledButtonTheme(colorScheme),
