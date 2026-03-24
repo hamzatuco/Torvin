@@ -3,6 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'core/theme/app_theme.dart';
 
+const _designSize = Size(390, 844);
+const _pagePadding = EdgeInsets.all(20);
+
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(const TorvinApp());
@@ -14,10 +17,10 @@ class TorvinApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(390, 844),
+      designSize: _designSize,
       minTextAdapt: true,
       splitScreenMode: true,
-      child: const _BootstrapPage(),
+      child: const _ThemePreviewPage(),
       builder: (_, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
@@ -32,8 +35,8 @@ class TorvinApp extends StatelessWidget {
   }
 }
 
-class _BootstrapPage extends StatelessWidget {
-  const _BootstrapPage();
+class _ThemePreviewPage extends StatelessWidget {
+  const _ThemePreviewPage();
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +48,7 @@ class _BootstrapPage extends StatelessWidget {
         title: const Text('Torvin'),
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(20),
+        padding: _pagePadding,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -56,79 +59,94 @@ class _BootstrapPage extends StatelessWidget {
               style: theme.textTheme.bodyMedium,
             ),
             const SizedBox(height: 24),
-            Wrap(
-              spacing: 12,
-              runSpacing: 12,
-              children: [
-                ElevatedButton(
-                  onPressed: () {},
-                  child: const Text('Elevated'),
-                ),
-                FilledButton(
-                  onPressed: () {},
-                  child: const Text('Filled'),
-                ),
-                OutlinedButton(
-                  onPressed: () {},
-                  child: const Text('Outlined'),
-                ),
-                TextButton(
-                  onPressed: () {},
-                  child: const Text('Text'),
-                ),
-              ],
-            ),
+            const _ActiveButtonsSection(),
             const SizedBox(height: 16),
-            Row(
-              children: [
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.favorite_border),
-                ),
-                const SizedBox(width: 8),
-                ElevatedButton.icon(
-                  onPressed: () {},
-                  icon: const Icon(Icons.send),
-                  label: const Text('Send money'),
-                ),
-              ],
-            ),
+            const _ActionRow(),
             const SizedBox(height: 24),
             Text('Disabled state', style: theme.textTheme.titleMedium),
             const SizedBox(height: 8),
-            Wrap(
-              spacing: 12,
-              runSpacing: 12,
-              children: [
-                ElevatedButton(
-                  onPressed: null,
-                  child: const Text('Elevated'),
-                ),
-                OutlinedButton(
-                  onPressed: null,
-                  child: const Text('Outlined'),
-                ),
-                FilledButton(
-                  onPressed: null,
-                  child: const Text('Filled'),
-                ),
-              ],
-            ),
+            const _DisabledButtonsSection(),
             const SizedBox(height: 24),
             Text('Chips', style: theme.textTheme.titleMedium),
             const SizedBox(height: 8),
-            Wrap(
-              spacing: 10,
-              runSpacing: 10,
-              children: const [
-                Chip(label: Text('Wallet')),
-                Chip(label: Text('Budget')),
-                Chip(label: Text('Transactions')),
-              ],
-            ),
+            const _FeatureChipsSection(),
           ],
         ),
       ),
+    );
+  }
+}
+
+class _ActiveButtonsSection extends StatelessWidget {
+  const _ActiveButtonsSection();
+
+  @override
+  Widget build(BuildContext context) {
+    return Wrap(
+      spacing: 12,
+      runSpacing: 12,
+      children: [
+        ElevatedButton(onPressed: () {}, child: const Text('Elevated')),
+        FilledButton(onPressed: () {}, child: const Text('Filled')),
+        OutlinedButton(onPressed: () {}, child: const Text('Outlined')),
+        TextButton(onPressed: () {}, child: const Text('Text')),
+      ],
+    );
+  }
+}
+
+class _ActionRow extends StatelessWidget {
+  const _ActionRow();
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        IconButton(
+          onPressed: () {},
+          icon: const Icon(Icons.favorite_border),
+        ),
+        const SizedBox(width: 8),
+        ElevatedButton.icon(
+          onPressed: () {},
+          icon: const Icon(Icons.send),
+          label: const Text('Send money'),
+        ),
+      ],
+    );
+  }
+}
+
+class _DisabledButtonsSection extends StatelessWidget {
+  const _DisabledButtonsSection();
+
+  @override
+  Widget build(BuildContext context) {
+    return Wrap(
+      spacing: 12,
+      runSpacing: 12,
+      children: const [
+        ElevatedButton(onPressed: null, child: Text('Elevated')),
+        OutlinedButton(onPressed: null, child: Text('Outlined')),
+        FilledButton(onPressed: null, child: Text('Filled')),
+      ],
+    );
+  }
+}
+
+class _FeatureChipsSection extends StatelessWidget {
+  const _FeatureChipsSection();
+
+  @override
+  Widget build(BuildContext context) {
+    return Wrap(
+      spacing: 10,
+      runSpacing: 10,
+      children: const [
+        Chip(label: Text('Wallet')),
+        Chip(label: Text('Budget')),
+        Chip(label: Text('Transactions')),
+      ],
     );
   }
 }
